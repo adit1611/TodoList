@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImage from '../assets/Screenshot 2024-09-24 175021.png';
+import logoImage from '../assets/Icons.png';
 import { IoMenu } from "react-icons/io5";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { RiMoonClearLine , RiSearch2Line } from "react-icons/ri";
