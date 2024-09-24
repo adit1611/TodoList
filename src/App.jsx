@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {React, useState} from 'react';
 import Navbar from './Navbar'; 
 import Content from './Content'
@@ -23,5 +24,18 @@ const App = () => {
     </ThemeProvider>
   );
 };
+=======
+import React from 'react'
+import { ThemeProvider } from './Theme'; 
+const App = () => {
+  return (
+    <ThemeProvider>
+      <h1 className="text-3xl bg-sky-400 font-bold underline">
+    Hello world!
+      </h1>
+      </ThemeProvider>
+    );
+  };
+>>>>>>> af9ad046a7906b93e706558094f1a90a29bd7467
 
 export default App;
