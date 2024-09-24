@@ -1,4 +1,5 @@
 import React from 'react';
+import logoImage from '../assets/Screenshot 2024-09-24 175021.png';
 import { IoMenu } from "react-icons/io5";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { RiMoonClearLine , RiSearch2Line } from "react-icons/ri";
@@ -12,7 +13,7 @@ const Navbar = ({ toggleLayout, isList }) => {
         <div className="navbar flex justify-between items-center w-screen h-[10vh]">
             <div className="left flex items-center w-1/2 space-x-1">
                 <IoMenu className="text-6xl mx-20 " />
-                <img src='./src/assets/Screenshot 2024-09-24 175021.png' alt='logoimage' className='h-14'/>
+                <img src={logoImage} alt='logoimage' className='h-14' />
             </div>
             <div className="right flex items-center justify-end w-1/2 space-x-5 mr-10">
             <button className='Search relative top-3 p-2'>
