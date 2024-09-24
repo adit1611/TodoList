@@ -1,10 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 
-<<<<<<< HEAD
 
-=======
->>>>>>> af9ad046a7906b93e706558094f1a90a29bd7467
-// Create the theme context
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
@@ -33,9 +29,8 @@ export const ThemeProvider = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-<<<<<<< HEAD
+
       {children} {/* Only renders children */}
-=======
       <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 relative">
         {/* Theme Switcher Button */}
         <button
@@ -55,7 +50,7 @@ export const ThemeProvider = ({ children }) => {
         </main>
         {children}
       </div>
->>>>>>> af9ad046a7906b93e706558094f1a90a29bd7467
+
     </ThemeContext.Provider>
   );
 };
