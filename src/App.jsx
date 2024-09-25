@@ -1,28 +1,39 @@
-import {React, useState} from 'react';
+import React, { useState } from 'react';
 import Navbar from './Navbar'; 
-import Content from './Content'
+import Content from './Content';
 import { ThemeProvider } from './Theme'; 
+import Slidebar from './Slidebar';
 
 const App = () => {
-
+  const [isOpen, setIsOpen] = useState(false);
+  const [showTodo, setShowTodo] = useState(true);
   const [isList, setIsList] = useState(true);
 
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   const toggleLayout = () => {
-    setIsList(!isList); 
-  }
+    setIsList(prevIsList => !prevIsList); 
+    setShowTodo(prev => !prev); 
+  };
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-        <Navbar toggleLayout={toggleLayout} isList={isList} />
-        <Content isList={isList} /> 
-        <div className='m-52'>
-          <h1 className='text-6xl bg-sky-400 '>Hello Sweetheart ❤️😘😘❤️</h1>
+      <div className="h-screen flex">
+        {/* Slidebar */}
+        <Slidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
+        
+        <div className={`flex-grow bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 overflow-y-auto ${isOpen ? 'ml-64' : 'ml-0'}`}>
+          {/* Navbar controlling layout toggle */}
+          <Navbar toggleLayout={toggleLayout} isList={isList} toggleSidebar={toggleSidebar} />
+          {/* Main content with toggleable layout */}
+          <Content showTodo={showTodo} /> {/* Pass isList as a prop */}
         </div>
       </div>
     </ThemeProvider>
   );
 };
-
 
 export default App;
