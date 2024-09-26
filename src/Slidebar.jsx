@@ -22,90 +22,89 @@ function Slidebar({ uncompletedTasks, completedTodos }) {
     const percent = Total - uniqueUncompletedIds.size;
 
     return (
-        <div className='h-[80vh] md:h-[952px] w-full md:w-[280px]'>
-            <div className='flex flex-col items-center justify-center'>
-                <img src={Totacan} alt='profile' className='w-24 h-24 rounded-full' />
-                <h4 className='text-lg md:text-xl'>Slidebar</h4>
+        <div className="h-[80vh] md:h-[90vh] w-full md:w-[280px] bg-[#eef6ef] dark:bg-[#2c2c2c] rounded-lg shadow-lg">
+            {/* Profile Section */}
+            <div className="flex flex-col items-center justify-center mt-6 md:mt-12">
+                <img src={Totacan} alt="profile" className="w-16 h-16 md:w-24 md:h-24 rounded-full mb-2" />
+                <h4 className="text-base md:text-xl font-semibold">Slidebar</h4>
             </div>
-            <div className='w-full h-full bg-[#eef6ef] dark:bg-[#2c2c2c] -mt-16 rounded-md'>
-                <div className='py-8 md:py-28 px-4 w-full md:w-[275px]'>
-                    <div className='h-64 bg-white dark:bg-[#232323] rounded-lg p-4'>
-                        {/* Task 1 */}
-                        <div className='flex gap-4 items-center text-lg md:text-xl mb-4'>
-                            <PiNotebookBold className='text-2xl' />
-                            <p>All Task</p>
-                        </div>
-                        {/* Task 2 */}
-                        <div className='flex gap-4 items-center text-lg md:text-xl mb-4'>
-                            <IoCalendarClearOutline className='text-2xl' />
-                            <p>Today</p>
-                        </div>
-                        {/* Task 3 */}
-                        <div className='flex gap-4 items-center text-lg md:text-xl mb-4'>
-                            <AiOutlineStar className='text-2xl' />
-                            <p>Important</p>
-                        </div>
-                        {/* Task 4 */}
-                        <div className='flex gap-4 items-center text-lg md:text-xl mb-4'>
-                            <IoMapOutline className='text-2xl' />
-                            <p>Planned</p>
-                        </div>
-                        <div className='flex gap-4 items-center text-lg md:text-xl mb-4'>
-                            <MdOutlineAssignmentInd className='text-2xl' />
-                            <p>Assigned to me</p>
-                        </div>
+
+            {/* Task List Section */}
+            <div className="w-full h-full px-4 md:px-2 py-6 md:py-10">
+                <div className="bg-white dark:bg-[#232323] rounded-lg p-4 mb-6">
+                    {/* Task 1 */}
+                    <div className="flex items-center gap-3 md:gap-4 py-2 hover:bg-[#dbe7dc] dark:hover:bg-[#222d23] rounded-md cursor-pointer">
+                        <PiNotebookBold className="text-xl md:text-2xl" />
+                        <p className="text-base md:text-lg">All Task</p>
                     </div>
-                    <div className='py-8 -px-14 w-full'>
-                        <div className='h-20 w-full bg-white dark:bg-[#232323] rounded-lg p-4'>
-                            {/* Add List */}
-                            <div className='flex gap-4 items-center mb-4'>
-                                <AiOutlinePlus className='text-4xl' />
-                                <p className='text-2xl'>Add List</p>
-                            </div>
-                        </div>
+                    {/* Task 2 */}
+                    <div className="flex items-center gap-3 md:gap-4 py-2 hover:bg-[#dbe7dc] dark:hover:bg-[#222d23] rounded-md cursor-pointer">
+                        <IoCalendarClearOutline className="text-xl md:text-2xl" />
+                        <p className="text-base md:text-lg">Today</p>
                     </div>
-                    <div className='py-10 -px-14 w-full'>
-                        <div className='h-[360px] w-full bg-white dark:bg-[#232323] rounded-lg p-4'>
-                            <div className='relative flex justify-between gap-x-20 mb-4'>
-                                <div>
-                                    <p className='text-lg md:text-xl'>Today Task</p>
-                                    <p className='text-4xl font-semibold'>{uniqueUncompletedIds.size + uniqueCompletedIds.size}</p>
-                                </div>
-                                <div className="absolute top-0 right-0 p-4">
-                                    <FaCircleInfo className='text-xl' />
-                                </div>
+                    {/* Task 3 */}
+                    <div className="flex items-center gap-3 md:gap-4 py-2 hover:bg-[#dbe7dc] dark:hover:bg-[#222d23] rounded-md cursor-pointer">
+                        <AiOutlineStar className="text-xl md:text-2xl" />
+                        <p className="text-base md:text-lg">Important</p>
+                    </div>
+                    {/* Task 4 */}
+                    <div className="flex items-center gap-3 md:gap-4 py-2 hover:bg-[#dbe7dc] dark:hover:bg-[#222d23] rounded-md cursor-pointer">
+                        <IoMapOutline className="text-xl md:text-2xl" />
+                        <p className="text-base md:text-lg">Planned</p>
+                    </div>
+                    {/* Task 5 */}
+                    <div className="flex items-center gap-3 md:gap-4 py-2 hover:bg-[#dbe7dc] dark:hover:bg-[#222d23] rounded-md cursor-pointer">
+                        <MdOutlineAssignmentInd className="text-xl md:text-2xl" />
+                        <p className="text-base md:text-lg">Assigned to me</p>
+                    </div>
+                </div>
+
+                {/* Add List Section */}
+                <div className="bg-white dark:bg-[#232323] rounded-lg p-4 mb-6">
+                    <div className="flex items-center gap-3 md:gap-4">
+                        <AiOutlinePlus className="text-3xl md:text-4xl" />
+                        <p className="text-lg md:text-2xl">Add List</p>
+                    </div>
+                </div>
+
+                {/* Progress Section */}
+                <div className="bg-white dark:bg-[#232323] rounded-lg p-4">
+                    <div className="flex justify-between items-center mb-4">
+                        <div>
+                            <p className="text-lg md:text-xl">Today Task</p>
+                            <p className="text-3xl md:text-4xl font-semibold">{uniqueUncompletedIds.size + uniqueCompletedIds.size}</p>
+                        </div>
+                        <FaCircleInfo className="text-xl md:text-2xl" />
+                    </div>
+                    <hr className="h-0.5 w-full bg-black dark:bg-gray-600 border-none mb-4" />
+                    <div className="flex flex-col items-center">
+                        <div style={{ width: 120, height: 120 }}>
+                            <CircularProgressbar
+                                strokeWidth={12}
+                                maxValue={Total}
+                                value={percent}
+                                styles={{
+                                    path: {
+                                        stroke: isLightMode ? 'rgb(63,145,66)' : 'rgb(63,145,66)',
+                                    },
+                                    trail: {
+                                        stroke: isLightMode ? 'rgb(20,46,21)' : 'rgb(160,237,163)',
+                                    },
+                                    text: {
+                                        fill: '#142e15',
+                                        fontSize: '16px',
+                                    },
+                                }}
+                            />
+                        </div>
+                        <div className="flex justify-between w-full mt-4">
+                            <div className="flex items-center gap-2">
+                                <div className="h-3 w-3 bg-[#3f9142] rounded-full"></div>
+                                <p className="text-sm">Pending</p>
                             </div>
-                            <hr className='h-0.5 w-full -mx-4 bg-black border-none' />
-                            <div className='h-fit mt-6'>
-                                <div style={{ width: 180, height: 180 }}>
-                                    <CircularProgressbar
-                                        strokeWidth={15}
-                                        maxValue={Total}
-                                        value={percent}
-                                        styles={{
-                                            path: {
-                                                stroke: isLightMode ? 'rgb(63,145,66)' : 'rgb(63,145,66)',
-                                            },
-                                            trail: {
-                                                stroke: isLightMode ? 'rgb(20,46,21)' : 'rgb(160,237,163)',
-                                            },
-                                            text: {
-                                                fill: '#142e15',
-                                                fontSize: '16px',
-                                            },
-                                        }}
-                                    />
-                                </div>
-                                <div className='flex h-10 gap-10 my-5'>
-                                    <div className='flex gap-2'>
-                                        <div className='h-3 w-3 bg-[#3f9142] rounded-full '></div>
-                                        <p className='gap-4 -my-1.5'>Pending</p>
-                                    </div>
-                                    <div className='flex gap-2'>
-                                        <div className='h-3 w-3 bg-[#142e15] dark:bg-[#a0eda3] rounded-full '></div>
-                                        <p className='gap-4 -my-1.5'>Done</p>
-                                    </div>
-                                </div>
+                            <div className="flex items-center gap-2">
+                                <div className="h-3 w-3 bg-[#142e15] dark:bg-[#a0eda3] rounded-full"></div>
+                                <p className="text-sm">Done</p>
                             </div>
                         </div>
                     </div>
