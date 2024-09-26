@@ -23,7 +23,7 @@ function TodoItem({ todo }) {
   };
 
   return (
-    <div className="flex items-center gap-x-5 p-2 text-black dark:text-white transition duration-200">
+    <div className="flex items-center gap-x-5 p-4 text-black dark:text-white transition duration-200  h-20">
       {/* Checkbox to toggle completion */}
       <input
         type="checkbox"

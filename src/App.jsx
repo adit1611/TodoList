@@ -15,21 +15,24 @@ const App = () => {
   };
 
   const toggleLayout = () => {
-    setIsList(prevIsList => !prevIsList); 
-    setShowTodo(prev => !prev); 
-  };
+    setIsList(prevIsList => !prevIsList);
+};
+
 
   return (
     <ThemeProvider>
       <div className="h-screen flex">
         {/* Slidebar */}
-        <Slidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
+        
         
         <div className={`flex-grow bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 overflow-y-auto ${isOpen ? 'ml-64' : 'ml-0'}`}>
           {/* Navbar controlling layout toggle */}
           <Navbar toggleLayout={toggleLayout} isList={isList} toggleSidebar={toggleSidebar} />
           {/* Main content with toggleable layout */}
-          <Content showTodo={showTodo} /> {/* Pass isList as a prop */}
+          <div className='flex'>
+            
+          <Content showTodo={true} isList={isList} /> {/* Pass isList as a prop */}
+          </div>
         </div>
       </div>
     </ThemeProvider>
