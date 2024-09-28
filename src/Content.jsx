@@ -72,7 +72,7 @@ const Content = memo(({ showTodo, isList, isSlidebarOpen }) => {
     }, [todos]);
 
     return (
-        <div className="w-[1500px] flex flex-col lg:flex-row">
+        <div className="w-[1500px]  flex flex-col lg:flex-row">
             <div className={`m-4 md:m-8 lg:m-16 w-full lg:w-[280px] transition-transform transform ${isSlidebarOpen ? 'visible' : 'hidden'}`}>
                 <Slidebar uncompletedTasks={uncompletedTasks} completedTodos={completedTodos} toggleEvent={toggleEvent} />
             </div>
@@ -109,37 +109,41 @@ const Content = memo(({ showTodo, isList, isSlidebarOpen }) => {
                         </div>
 
                         {/* Task input field (shown when "Add Task" button is clicked) */}
-                        {showDiv && (
+                       
                             <div className="h-fit dark:text-white">
                                 <div className="space-y-1 text-black dark:text-white">
                                     <TodoProvider value={{ todos, addTodo, deleteTodo, toggleComplete }}>
+                                    {showDiv && (
                                         <div className="w-full h-32">
                                             <Inputfield addTodo={addTodo} />
                                         </div>
-
-                                        {/* Uncompleted tasks */}
-                                        <div className={`${isList ? 'block' : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'}`}>
-                                            {uncompletedTasks.map(todo => (
-                                                <div
+                                    )}
+                                            <>
+                                              {/* Uncompleted tasks */}
+                                              <div className={`${isList ? 'block' : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'}`}>
+                                                {uncompletedTasks.map(todo => (
+                                                  <div
                                                     key={todo.id}
                                                     className={`relative w-full h-20 p-4 text-xl text-black dark:text-white 
                                                     ${isList ? 'border-t-2 border-b-2 border-[#2f3630]' : 'border-2 border-[#2f3630]'}`}
-                                                >
+                                                  >
                                                     <TodoItem 
-                                                        todo={todo} 
-                                                        deleteTodo={deleteTodo} 
-                                                        className={`${isList ? 'block' : 'col-span-1'}`} 
+                                                      todo={todo} 
+                                                      deleteTodo={deleteTodo} 
+                                                      className={`${isList ? 'block' : 'col-span-1'}`} 
                                                     />
-                                                </div>
-                                            ))}
-                                        </div>
+                                                  </div>
+                                                ))}
+                                              </div>
+                                            </>
+                                        
                                     </TodoProvider>                         
                                 </div>
                             </div>
-                        )}
+                      
 
                         {/* Completed tasks */}
-                        {showTodo && (
+                        {isOpen && (
                             <div className="h-[20vh] text-black dark:text-white">
                                 <h2 className="font-bold">Completed Tasks</h2>
                                 {completedTodos.map(todo => (
