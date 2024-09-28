@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import Content from './Content';
 import { ThemeProvider } from './Theme'; // Optional if you have a ThemeProvider
 
+
 const App = () => {
   const [isSlidebarOpen, setSlidebarOpen] = useState(false); // State to track slidebar visibility
   
@@ -30,6 +31,7 @@ const App = () => {
           
           {/* Main content that includes the Slidebar */}
           <Content isList={isList} isSlidebarOpen={isSlidebarOpen}/>
+         
         </div>
       </div>
     </ThemeProvider>
