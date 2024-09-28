@@ -5,12 +5,15 @@ import { ThemeProvider } from './Theme'; // Optional if you have a ThemeProvider
 
 const App = () => {
   const [isSlidebarOpen, setSlidebarOpen] = useState(false); // State to track slidebar visibility
+  
   const [isList, setIsList] = useState(true); // State to track list/grid view
 
   // Toggle sidebar visibility
   const toggleSlidebar = () => {
     setSlidebarOpen(!isSlidebarOpen);
   };
+
+ 
 
   // Toggle between list and grid layout
   const toggleLayout = () => {
@@ -26,7 +29,7 @@ const App = () => {
           <Navbar toggleLayout={toggleLayout} isList={isList} toggleSlidebar={toggleSlidebar} />
           
           {/* Main content that includes the Slidebar */}
-          <Content isList={isList} isSlidebarOpen={isSlidebarOpen} />
+          <Content isList={isList} isSlidebarOpen={isSlidebarOpen}/>
         </div>
       </div>
     </ThemeProvider>

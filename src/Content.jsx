@@ -9,11 +9,13 @@ import Slidebar from './Slidebar.jsx';
 import Divbar from './divcount.jsx';
 
 const Content = memo(({ showTodo, isList ,isSlidebarOpen}) => {
-    const [isOpen, setOpen] = useState(false);
+    
     const [showDiv, setShowDiv] = useState(false);
     const [todos, setTodos] = useState([]);
     const [uncompletedTasks, setUncompletedTasks] = useState([]);
     const [completedTodos, setCompletedTodos] = useState([]);
+    const [isEvent, setEvent] = useState(false);
+    const [isOpen, setOpen] = useState(false);
 
     const toggleDropdown = () => {
         setOpen(!isOpen);
@@ -22,6 +24,10 @@ const Content = memo(({ showTodo, isList ,isSlidebarOpen}) => {
     const toggleDiv = () => {
         setShowDiv(!showDiv);
     };
+
+    const toggleEvent = () => {
+        setEvent((prev) => !prev);
+      };
 
     const addTodo = (todo) => {
         setTodos(prev => [{ id: Date.now(), ...todo }, ...prev]);
@@ -65,7 +71,7 @@ const Content = memo(({ showTodo, isList ,isSlidebarOpen}) => {
         <div className={`m-4 md:m-8 lg:m-16 w-full lg:w-[280px] transition-transform transform ${isSlidebarOpen ? 'visible' : 'hidden'}`}>
 
 
-                <Slidebar uncompletedTasks={uncompletedTasks} completedTodos={completedTodos} />
+                <Slidebar uncompletedTasks={uncompletedTasks} completedTodos={completedTodos} toggleEvent={toggleEvent}/>
             </div>
             <div className={`w-[110vw] flex-grow relative m-4 md:m-8 lg:m-20 transition-all duration-300 `}>
                 <button 
@@ -138,7 +144,7 @@ const Content = memo(({ showTodo, isList ,isSlidebarOpen}) => {
                 )}
                 
             </div>
-                        <div className="m-4 md:m-8 lg:m-16 w-[800px] lg:w-[280px] hidden">
+                        <div className= {`m-4 md:m-8 lg:m-16 w-[800px]  ${isEvent ? 'visible' : 'hidden'}`} >
                             <Divbar />
                         </div>
         </div>

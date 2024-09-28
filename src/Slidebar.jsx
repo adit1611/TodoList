@@ -8,7 +8,7 @@ import { FaCircleInfo } from "react-icons/fa6";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-function Slidebar({ uncompletedTasks, completedTodos }) {
+function Slidebar({ uncompletedTasks, completedTodos,toggleEvent }) {
     const [isLightMode, setIsLightMode] = useState(true);
 
     useEffect(() => {
@@ -36,7 +36,7 @@ function Slidebar({ uncompletedTasks, completedTodos }) {
                             <p>All Task</p>
                         </div>
                         {/* Task 2 */}
-                        <div className='h-10 w-full flex gap-4 items-center text-lg md:text-xl mb-4 hover:bg-[#dbe7dc] dark:hover:bg-[#222d23]'>
+                        <div className='h-10 w-full flex gap-4 items-center text-lg md:text-xl mb-4 hover:bg-[#dbe7dc] dark:hover:bg-[#222d23]' onClick={toggleEvent}>
                             <IoCalendarClearOutline className='text-2xl' />
                             <p>Today</p>
                         </div>

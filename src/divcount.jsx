@@ -6,7 +6,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { IoRepeatOutline, IoCalendarClearOutline } from "react-icons/io5";
 import { RiDeleteBinFill } from "react-icons/ri";
 
-function Divbar({ showTodo }) {
+function Divbar({toggleEvent }) {
     const [isImportant, setIsImportant] = useState(false);
 
     const toggleImportant = () => {
@@ -18,8 +18,8 @@ function Divbar({ showTodo }) {
     };
 
     return (
-        <div className="h-[85vh] md:h-[90vh] w-full md:w-[280px] bg-[#eef6ef] dark:bg-[#2c2c2c] mt-6 shadow-md">
-            <div className="py-10 px-4 md:px-2 h-[80vh] overflow-y-auto">
+        <div className="h-[120vh] md:h-[90vh] w-full md:w-[280px] bg-[#eef6ef] dark:bg-[#2c2c2c] mt-6 shadow-md">
+            <div className="py-10 px-4 md:px-2 h-[80vh] ">
                 {/* Todo Item */}
                 <div className="flex gap-x-4 md:gap-x-10 items-center p-4 md:p-5 border-t-2 border-[#2c2c2c] dark:border-[#eef6ef] text-2xl">
                     <input
@@ -66,7 +66,7 @@ function Divbar({ showTodo }) {
                 {/* Notes Section */}
                 <div className="py-10">
                     <textarea
-                        className="w-full h-40 md:h-72 p-4 bg-[#eef6ef] dark:bg-[#2c2c2c] border-none resize-none rounded-md"
+                        className="w-full h-90 md:h-72 p-4 bg-[#eef6ef] dark:bg-[#2c2c2c] border-none resize-none rounded-md"
                         placeholder="Add Notes"
                     />
                 </div>
